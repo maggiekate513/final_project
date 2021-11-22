@@ -4,11 +4,11 @@ class Ingredient < ApplicationRecord
   belongs_to :category
 
   belongs_to :store,
-             :class_name => "GroceryStore"
+             class_name: "GroceryStore"
 
   belongs_to :meal,
-             :required => false,
-             :counter_cache => true
+             optional: true,
+             counter_cache: true
 
   # Indirect associations
 
@@ -19,5 +19,4 @@ class Ingredient < ApplicationRecord
   def to_s
     meal.to_s
   end
-
 end

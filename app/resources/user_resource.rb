@@ -14,5 +14,4 @@ class UserResource < ApplicationResource
              foreign_key: :chef
 
   # Indirect associations
-
 end

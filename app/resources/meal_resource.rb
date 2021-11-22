@@ -14,5 +14,4 @@ class MealResource < ApplicationResource
              foreign_key: :chef
 
   # Indirect associations
-
 end

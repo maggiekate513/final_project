@@ -10,5 +10,4 @@ class GroceryStoreResource < ApplicationResource
              foreign_key: :store_id
 
   # Indirect associations
-
 end

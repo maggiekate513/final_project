@@ -1,12 +1,11 @@
 class User < ApplicationRecord
-  
   include JwtToken
-# Direct associations
+  # Direct associations
 
   has_many   :food_items,
-             :class_name => "Meal",
-             :foreign_key => "chef",
-             :dependent => :destroy
+             class_name: "Meal",
+             foreign_key: "chef",
+             dependent: :destroy
 
   # Indirect associations
 

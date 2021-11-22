@@ -18,5 +18,4 @@ class IngredientResource < ApplicationResource
   belongs_to :meal
 
   # Indirect associations
-
 end

@@ -2,8 +2,8 @@ class GroceryStore < ApplicationRecord
   # Direct associations
 
   has_many   :ingredients,
-             :foreign_key => "store_id",
-             :dependent => :destroy
+             foreign_key: "store_id",
+             dependent: :destroy
 
   # Indirect associations
 
@@ -14,5 +14,4 @@ class GroceryStore < ApplicationRecord
   def to_s
     store_name
   end
-
 end
