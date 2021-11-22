@@ -7,6 +7,8 @@ class MealResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :ingredients
+
   belongs_to :recipe_inventor,
              resource: UserResource,
              foreign_key: :chef
