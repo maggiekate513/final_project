@@ -1,4 +1,6 @@
 class MealsController < ApplicationController
+  before_action :current_user_must_be_meal_recipe_inventor, only: [:edit, :update, :destroy] 
+
   before_action :set_meal, only: [:show, :edit, :update, :destroy]
 
   # GET /meals
@@ -58,6 +60,14 @@ class MealsController < ApplicationController
 
 
   private
+
+  def current_user_must_be_meal_recipe_inventor
+    set_meal
+    unless current_user == @meal.recipe_inventor
+      redirect_back fallback_location: root_path, alert: "You are not authorized for that."
+    end
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_meal
       @meal = Meal.find(params[:id])
