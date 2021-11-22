@@ -4,6 +4,8 @@ RSpec.describe Ingredient, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:category) }
+
     it { should belong_to(:store) }
 
     it { should belong_to(:meal) }

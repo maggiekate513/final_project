@@ -1,6 +1,8 @@
 class Ingredient < ApplicationRecord
   # Direct associations
 
+  belongs_to :category
+
   belongs_to :store,
              :class_name => "GroceryStore"
 
