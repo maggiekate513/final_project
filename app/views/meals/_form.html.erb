@@ -2,30 +2,9 @@
 
 <%= form_with(model: meal, local: true, novalidate: true, class: "mb-3") do |f| %>
   <!-- Label and input for chef start -->
-  <div class="form-group">
-    <% chef_class = "form-control" %>
-    <% chef_was_invalid = meal.errors.include?(:chef) %>
-
-    <% if was_validated %>
-      <% if chef_was_invalid %>
-        <% chef_class << " is-invalid" %>
-      <% else %>
-        <% chef_class << " is-valid" %>
-      <% end %>
-    <% end %>
-
-    <%= f.label :chef %>
-    <!-- Input for chef start -->
-    <%= f.collection_select :chef, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for chef end -->
-    <% if chef_was_invalid %>
-      <% meal.errors.full_messages_for(:chef).each do |message| %>
-        <div class="invalid-feedback d-flex">
-          <%= message %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
+  <!-- Input for "chef" start -->
+  <%= f.hidden_field :chef, value: current_user.id %>
+  <!-- Input for "chef" end -->
   <!-- Label and input for chef end -->
   <!-- Label and input for description start -->
   <div class="form-group">
