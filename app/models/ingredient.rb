@@ -1,6 +1,9 @@
 class Ingredient < ApplicationRecord
   # Direct associations
 
+  belongs_to :store,
+             :class_name => "GroceryStore"
+
   belongs_to :meal,
              :required => false,
              :counter_cache => true
