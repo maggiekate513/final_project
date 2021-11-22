@@ -1,7 +1,6 @@
 <% was_validated = ingredient.errors.any? %>
 
 <%= form_with(model: ingredient, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for meal_id start -->
   <div class="form-group">
     <% meal_class = "form-control" %>
     <% meal_was_invalid = ingredient.errors.include?(:meal) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :meal_id %>
-    <!-- Input for meal_id start -->
     <%= f.collection_select :meal_id, Meal.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for meal_id end -->
     <% if meal_was_invalid %>
       <% ingredient.errors.full_messages_for(:meal).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for meal_id end -->
-  <!-- Label and input for name start -->
   <div class="form-group">
     <% name_class = "form-control" %>
     <% name_was_invalid = ingredient.errors.include?(:name) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :name %>
-    <!-- Input for name start -->
     <%= f.text_field :name, class: name_class, placeholder: "Enter name" %>
-    <!-- Input for name end -->
     <% if name_was_invalid %>
       <% ingredient.errors.full_messages_for(:name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for name end -->
-  <!-- Label and input for category_id start -->
   <div class="form-group">
     <% category_class = "form-control" %>
     <% category_was_invalid = ingredient.errors.include?(:category) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :category_id %>
-    <!-- Input for category_id start -->
     <%= f.collection_select :category_id, Category.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for category_id end -->
     <% if category_was_invalid %>
       <% ingredient.errors.full_messages_for(:category).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for category_id end -->
-  <!-- Label and input for store_id start -->
   <div class="form-group">
     <% store_class = "form-control" %>
     <% store_was_invalid = ingredient.errors.include?(:store) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :store_id %>
-    <!-- Input for store_id start -->
     <%= f.collection_select :store_id, GroceryStore.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for store_id end -->
     <% if store_was_invalid %>
       <% ingredient.errors.full_messages_for(:store).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,8 +89,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for store_id end -->
-  <!-- Label and input for cost start -->
   <div class="form-group">
     <% cost_class = "form-control" %>
     <% cost_was_invalid = ingredient.errors.include?(:cost) %>
@@ -119,9 +102,7 @@
     <% end %>
 
     <%= f.label :cost %>
-    <!-- Input for cost start -->
     <%= f.text_field :cost, class: cost_class, placeholder: "Enter cost" %>
-    <!-- Input for cost end -->
     <% if cost_was_invalid %>
       <% ingredient.errors.full_messages_for(:cost).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -130,6 +111,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for cost end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

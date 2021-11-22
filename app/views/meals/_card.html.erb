@@ -6,18 +6,14 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Chef</dt>
-      <!-- Display chef start -->
       <dd>
         <% if @meal.recipe_inventor.present? %>
           <%= link_to meal.recipe_inventor, meal.recipe_inventor %>
         <% end %>
       </dd>
-      <!-- Display chef end -->
 
       <dt>Description</dt>
-      <!-- Display description start -->
       <dd><%= meal.description %></dd>
-      <!-- Display description end -->
 
     </dl>
 
@@ -26,7 +22,6 @@
         <%= link_to_show_or_back meal, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link meal start -->
       <div class="col">
         <% if current_user == @meal.recipe_inventor %>
           <%= link_to edit_meal_url(meal), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -34,9 +29,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link meal end -->
 
-      <!-- Delete link meal start -->
       <div class="col">
         <% if current_user == @meal.recipe_inventor %>
           <%= link_to meal, method: :delete, data: { confirm: "Do you really want to delete this meal?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -44,7 +37,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link meal end -->
     </div>
   </div>
 

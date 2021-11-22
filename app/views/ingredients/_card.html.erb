@@ -6,41 +6,31 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Meal</dt>
-      <!-- Display meal_id start -->
       <dd>
         <% if @ingredient.meal.present? %>
           <%= link_to ingredient.meal, ingredient.meal %>
         <% end %>
       </dd>
-      <!-- Display meal_id end -->
 
       <dt>Name</dt>
-      <!-- Display name start -->
       <dd><%= ingredient.name %></dd>
-      <!-- Display name end -->
 
       <dt>Category</dt>
-      <!-- Display category_id start -->
       <dd>
         <% if @ingredient.category.present? %>
           <%= link_to ingredient.category, ingredient.category %>
         <% end %>
       </dd>
-      <!-- Display category_id end -->
 
       <dt>Store</dt>
-      <!-- Display store_id start -->
       <dd>
         <% if @ingredient.store.present? %>
           <%= link_to ingredient.store, ingredient.store %>
         <% end %>
       </dd>
-      <!-- Display store_id end -->
 
       <dt>Cost</dt>
-      <!-- Display cost start -->
       <dd><%= ingredient.cost %></dd>
-      <!-- Display cost end -->
 
     </dl>
 
@@ -49,21 +39,17 @@
         <%= link_to_show_or_back ingredient, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link ingredient start -->
       <div class="col">
         <%= link_to edit_ingredient_url(ingredient), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link ingredient end -->
 
-      <!-- Delete link ingredient start -->
       <div class="col">
         <%= link_to ingredient, method: :delete, data: { confirm: "Do you really want to delete this ingredient?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link ingredient end -->
     </div>
   </div>
 
