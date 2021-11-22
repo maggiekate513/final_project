@@ -7,7 +7,7 @@ class MealsController < ApplicationController
   def index
     @q = Meal.ransack(params[:q])
     @meals = @q.result(distinct: true).includes(:recipe_inventor,
-                                                :ingredients).page(params[:page]).per(10)
+                                                :ingredients, :categories, :stores).page(params[:page]).per(10)
   end
 
   def show
@@ -68,6 +68,6 @@ class MealsController < ApplicationController
   end
 
   def meal_params
-    params.require(:meal).permit(:chef, :description)
+    params.require(:meal).permit(:chef, :description, :photo)
   end
 end

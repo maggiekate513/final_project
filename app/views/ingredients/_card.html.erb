@@ -32,6 +32,11 @@
       <dt>Cost</dt>
       <dd><%= ingredient.cost %></dd>
 
+      <dt>Photo</dt>
+      <dd>
+        <%= cl_image_tag @ingredient.photo, class: "img-fluid" %>
+      </dd>
+
     </dl>
 
     <div class="row">

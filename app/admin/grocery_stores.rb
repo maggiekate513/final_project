@@ -1,5 +1,5 @@
 ActiveAdmin.register GroceryStore do
-  permit_params :store_name
+  permit_params :store_name, :location
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

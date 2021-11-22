@@ -6,6 +6,9 @@ RSpec.describe GroceryStore, type: :model do
   end
 
   describe "InDirect Associations" do
+    it { should have_many(:meals) }
+
+    it { should have_many(:categories) }
   end
 
   describe "Validations" do

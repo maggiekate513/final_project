@@ -6,6 +6,7 @@ class CreateIngredients < ActiveRecord::Migration[6.0]
       t.integer :category_id
       t.integer :store_id
       t.float :cost
+      t.string :photo
 
       t.timestamps
     end
