@@ -7,6 +7,10 @@ class MealResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :recipe_inventor,
+             resource: UserResource,
+             foreign_key: :chef
+
   # Indirect associations
 
 end

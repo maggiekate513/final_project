@@ -9,6 +9,10 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :food_items,
+             resource: MealResource,
+             foreign_key: :chef
+
   # Indirect associations
 
 end
