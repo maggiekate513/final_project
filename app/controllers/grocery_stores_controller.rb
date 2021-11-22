@@ -1,26 +1,21 @@
 class GroceryStoresController < ApplicationController
   before_action :set_grocery_store, only: %i[show edit update destroy]
 
-  # GET /grocery_stores
   def index
     @q = GroceryStore.ransack(params[:q])
     @grocery_stores = @q.result(distinct: true).includes(:ingredients).page(params[:page]).per(10)
   end
 
-  # GET /grocery_stores/1
   def show
     @ingredient = Ingredient.new
   end
 
-  # GET /grocery_stores/new
   def new
     @grocery_store = GroceryStore.new
   end
 
-  # GET /grocery_stores/1/edit
   def edit; end
 
-  # POST /grocery_stores
   def create
     @grocery_store = GroceryStore.new(grocery_store_params)
 
@@ -32,7 +27,6 @@ class GroceryStoresController < ApplicationController
     end
   end
 
-  # PATCH/PUT /grocery_stores/1
   def update
     if @grocery_store.update(grocery_store_params)
       redirect_to @grocery_store,
@@ -42,7 +36,6 @@ class GroceryStoresController < ApplicationController
     end
   end
 
-  # DELETE /grocery_stores/1
   def destroy
     @grocery_store.destroy
     redirect_to grocery_stores_url,
@@ -51,12 +44,10 @@ class GroceryStoresController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_grocery_store
     @grocery_store = GroceryStore.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def grocery_store_params
     params.require(:grocery_store).permit(:store_name)
   end

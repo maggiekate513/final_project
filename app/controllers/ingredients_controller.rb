@@ -1,25 +1,20 @@
 class IngredientsController < ApplicationController
   before_action :set_ingredient, only: %i[show edit update destroy]
 
-  # GET /ingredients
   def index
     @q = Ingredient.ransack(params[:q])
     @ingredients = @q.result(distinct: true).includes(:meal, :store,
                                                       :category).page(params[:page]).per(10)
   end
 
-  # GET /ingredients/1
   def show; end
 
-  # GET /ingredients/new
   def new
     @ingredient = Ingredient.new
   end
 
-  # GET /ingredients/1/edit
   def edit; end
 
-  # POST /ingredients
   def create
     @ingredient = Ingredient.new(ingredient_params)
 
@@ -35,7 +30,6 @@ class IngredientsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /ingredients/1
   def update
     if @ingredient.update(ingredient_params)
       redirect_to @ingredient, notice: "Ingredient was successfully updated."
@@ -44,7 +38,6 @@ class IngredientsController < ApplicationController
     end
   end
 
-  # DELETE /ingredients/1
   def destroy
     @ingredient.destroy
     message = "Ingredient was successfully deleted."
@@ -57,12 +50,10 @@ class IngredientsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_ingredient
     @ingredient = Ingredient.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def ingredient_params
     params.require(:ingredient).permit(:meal_id, :name, :category_id,
                                        :store_id, :cost)
