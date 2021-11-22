@@ -1,6 +1,10 @@
 class Meal < ApplicationRecord
   # Direct associations
 
+  belongs_to :recipe_inventor,
+             :class_name => "User",
+             :foreign_key => "chef"
+
   # Indirect associations
 
   # Validations

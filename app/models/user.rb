@@ -1,6 +1,11 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :food_items,
+             :class_name => "Meal",
+             :foreign_key => "chef",
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
