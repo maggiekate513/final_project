@@ -24,7 +24,12 @@ class IngredientsController < ApplicationController
     @ingredient = Ingredient.new(ingredient_params)
 
     if @ingredient.save
-      redirect_to @ingredient, notice: 'Ingredient was successfully created.'
+      message = 'Ingredient was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @ingredient, notice: message
+      end
     else
       render :new
     end

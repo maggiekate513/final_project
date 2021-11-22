@@ -8,6 +8,7 @@ class GroceryStoresController < ApplicationController
 
   # GET /grocery_stores/1
   def show
+    @ingredient = Ingredient.new
   end
 
   # GET /grocery_stores/new

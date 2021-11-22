@@ -1,0 +1,21 @@
+<!-- Form meal start -->
+<%= form_with(model: @meal, local: true) do |f| %>
+<!-- Form meal end -->
+
+  <!-- Label and input for chef start -->
+  <!-- Input for chef start -->
+  <%= f.hidden_field :chef, value: @user.id %>
+  <!-- Input for chef end -->
+  <!-- Label and input for chef end -->
+
+  <!-- Label and input for description start -->
+  <div class="form-group">
+    <%= f.label :description %>
+    <!-- Input for description start -->
+    <%= f.text_area :description, rows: "3", class: "form-control" %>
+    <!-- Input for description end -->
+  </div>
+  <!-- Label and input for description end -->
+
+  <%= f.submit "Create meal", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

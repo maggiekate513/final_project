@@ -1,0 +1,52 @@
+<!-- Form ingredient start -->
+<%= form_with(model: @ingredient, local: true) do |f| %>
+<!-- Form ingredient end -->
+
+  <!-- Label and input for meal_id start -->
+  <div class="form-group">
+    <%= f.label :meal_id %>
+
+    <!-- Input for meal_id start -->
+    <%= f.text_field :meal_id, class: "form-control" %>
+    <!-- Input for meal_id end -->
+  </div>
+  <!-- Label and input for meal_id end -->
+
+  <!-- Label and input for name start -->
+  <div class="form-group">
+    <%= f.label :name %>
+
+    <!-- Input for name start -->
+    <%= f.text_field :name, class: "form-control" %>
+    <!-- Input for name end -->
+  </div>
+  <!-- Label and input for name end -->
+
+  <!-- Label and input for category_id start -->
+  <!-- Input for category_id start -->
+  <%= f.hidden_field :category_id, value: @category.id %>
+  <!-- Input for category_id end -->
+  <!-- Label and input for category_id end -->
+
+  <!-- Label and input for store_id start -->
+  <div class="form-group">
+    <%= f.label :store_id %>
+
+    <!-- Input for store_id start -->
+    <%= f.text_field :store_id, class: "form-control" %>
+    <!-- Input for store_id end -->
+  </div>
+  <!-- Label and input for store_id end -->
+
+  <!-- Label and input for cost start -->
+  <div class="form-group">
+    <%= f.label :cost %>
+
+    <!-- Input for cost start -->
+    <%= f.text_field :cost, class: "form-control" %>
+    <!-- Input for cost end -->
+  </div>
+  <!-- Label and input for cost end -->
+
+  <%= f.submit "Create ingredient", class: "btn btn-block btn-outline-secondary" %>
+<% end %>
