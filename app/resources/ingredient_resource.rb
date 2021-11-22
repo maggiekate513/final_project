@@ -10,6 +10,8 @@ class IngredientResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :category
+
   belongs_to :store,
              resource: GroceryStoreResource
 
