@@ -16,7 +16,7 @@
 
     <%= f.label :chef %>
     <!-- Input for chef start -->
-    <%= f.number_field :chef, class: chef_class, placeholder: "Enter chef" %>
+    <%= f.collection_select :chef, User.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for chef end -->
     <% if chef_was_invalid %>
       <% meal.errors.full_messages_for(:chef).each do |message| %>
