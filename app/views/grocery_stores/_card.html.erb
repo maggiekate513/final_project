@@ -1,0 +1,41 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Grocery Store #<%= grocery_store.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Store name</dt>
+      <!-- Display store_name start -->
+      <dd><%= grocery_store.store_name %></dd>
+      <!-- Display store_name end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back grocery_store, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link grocery_store start -->
+      <div class="col">
+        <%= link_to edit_grocery_store_url(grocery_store), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link grocery_store end -->
+
+      <!-- Delete link grocery_store start -->
+      <div class="col">
+        <%= link_to grocery_store, method: :delete, data: { confirm: "Do you really want to delete this grocery_store?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link grocery_store end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(grocery_store.updated_at) %> ago
+  </div>
+</div>
