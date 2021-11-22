@@ -9,4 +9,9 @@ class CategoryResource < ApplicationResource
   has_many :ingredients
 
   # Indirect associations
+
+  many_to_many :stores,
+               resource: GroceryStoreResource
+
+  many_to_many :meals
 end

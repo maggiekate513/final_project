@@ -1,4 +1,6 @@
 class Meal < ApplicationRecord
+  mount_uploader :photo, PhotoUploader
+
   # Direct associations
 
   has_many   :ingredients,
@@ -9,6 +11,14 @@ class Meal < ApplicationRecord
              foreign_key: "chef"
 
   # Indirect associations
+
+  has_many   :stores,
+             through: :ingredients,
+             source: :store
+
+  has_many   :categories,
+             through: :ingredients,
+             source: :category
 
   # Validations
 

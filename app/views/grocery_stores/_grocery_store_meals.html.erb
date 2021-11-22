@@ -1,0 +1,17 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Meals
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @grocery_store.meals.each do |meal| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <a href="/meals/<%= meal.id %>">
+          <%= meal %>
+        </a>
+
+      </li>
+    <% end %>
+
+  </ul>
+</div>

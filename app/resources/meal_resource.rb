@@ -4,6 +4,7 @@ class MealResource < ApplicationResource
   attribute :updated_at, :datetime, writable: false
   attribute :chef, :integer
   attribute :description, :string
+  attribute :photo, :string
 
   # Direct associations
 
@@ -14,4 +15,9 @@ class MealResource < ApplicationResource
              foreign_key: :chef
 
   # Indirect associations
+
+  many_to_many :stores,
+               resource: GroceryStoreResource
+
+  many_to_many :categories
 end

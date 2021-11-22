@@ -3,7 +3,12 @@ class GroceryStoresController < ApplicationController
 
   def index
     @q = GroceryStore.ransack(params[:q])
-    @grocery_stores = @q.result(distinct: true).includes(:ingredients).page(params[:page]).per(10)
+    @grocery_stores = @q.result(distinct: true).includes(:ingredients,
+                                                         :categories, :meals).page(params[:page]).per(10)
+    @location_hash = Gmaps4rails.build_markers(@grocery_stores.where.not(location_latitude: nil)) do |grocery_store, marker|
+      marker.lat grocery_store.location_latitude
+      marker.lng grocery_store.location_longitude
+    end
   end
 
   def show
@@ -49,6 +54,6 @@ class GroceryStoresController < ApplicationController
   end
 
   def grocery_store_params
-    params.require(:grocery_store).permit(:store_name)
+    params.require(:grocery_store).permit(:store_name, :location)
   end
 end

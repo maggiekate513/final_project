@@ -6,6 +6,14 @@ class Category < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :stores,
+             through: :ingredients,
+             source: :store
+
+  has_many   :meals,
+             through: :ingredients,
+             source: :meal
+
   # Validations
 
   # Scopes

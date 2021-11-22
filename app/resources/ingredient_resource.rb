@@ -7,6 +7,7 @@ class IngredientResource < ApplicationResource
   attribute :category_id, :integer
   attribute :store_id, :integer
   attribute :cost, :float
+  attribute :photo, :string
 
   # Direct associations
 

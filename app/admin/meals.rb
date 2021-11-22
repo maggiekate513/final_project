@@ -1,5 +1,5 @@
 ActiveAdmin.register Meal do
-  permit_params :chef, :description
+  permit_params :chef, :description, :photo
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

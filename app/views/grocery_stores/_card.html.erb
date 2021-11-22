@@ -8,6 +8,13 @@
       <dt>Store name</dt>
       <dd><%= grocery_store.store_name %></dd>
 
+      <dt>Location</dt>
+      <dd>
+        <div>
+          <%= render partial: "grocery_stores/one_photo_map" %>
+        </div>
+      </dd>
+
     </dl>
 
     <div class="row">

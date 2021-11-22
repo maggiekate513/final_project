@@ -3,6 +3,7 @@ class GroceryStoreResource < ApplicationResource
   attribute :created_at, :datetime, writable: false
   attribute :updated_at, :datetime, writable: false
   attribute :store_name, :string
+  attribute :location, :string
 
   # Direct associations
 
@@ -10,4 +11,8 @@ class GroceryStoreResource < ApplicationResource
              foreign_key: :store_id
 
   # Indirect associations
+
+  many_to_many :meals
+
+  many_to_many :categories
 end

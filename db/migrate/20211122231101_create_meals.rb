@@ -3,6 +3,7 @@ class CreateMeals < ActiveRecord::Migration[6.0]
     create_table :meals do |t|
       t.integer :chef
       t.text :description
+      t.string :photo
 
       t.timestamps
     end
