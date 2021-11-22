@@ -6,6 +6,9 @@ class GroceryStoreResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :ingredients,
+             foreign_key: :store_id
+
   # Indirect associations
 
 end
