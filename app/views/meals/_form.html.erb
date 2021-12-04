@@ -46,5 +46,27 @@
       <% end %>
     <% end %>
   </div>
+  <div class="form-group">
+    <% meal_name_class = "form-control" %>
+    <% meal_name_was_invalid = meal.errors.include?(:meal_name) %>
+
+    <% if was_validated %>
+      <% if meal_name_was_invalid %>
+        <% meal_name_class << " is-invalid" %>
+      <% else %>
+        <% meal_name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :meal_name %>
+    <%= f.text_field :meal_name, class: meal_name_class, placeholder: "Enter meal name" %>
+    <% if meal_name_was_invalid %>
+      <% meal.errors.full_messages_for(:meal_name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

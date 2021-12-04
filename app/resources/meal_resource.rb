@@ -5,6 +5,7 @@ class MealResource < ApplicationResource
   attribute :chef, :integer
   attribute :description, :string
   attribute :photo, :string
+  attribute :meal_name, :string
 
   # Direct associations
 
